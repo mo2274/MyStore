@@ -1,1 +1,43 @@
-<p>cart works!</p>
+
+
+
+
+<div ngClass="cart-container">
+    <div>
+        <div ngClass="cart-panel">
+            <div ngClass="cart-item" *ngFor="let item of items">
+                <img src="{{ item.url }}">
+                <div ngClass="cart-item-details">
+                    <h1> {{ item.name }}</h1>
+                    <h5>$ {{ item.price }}</h5>
+                    <div style="display: flex;">
+                        <label style="margin-right: 10px;">Amount: </label>
+                        <input type="number" ngClass="number-input" id="count" value="{{ item.count }}">
+                    </div>                  
+                </div>
+            </div>
+        </div>
+        <h1 style="margin-top: 40px;">Total : ${{ total.toPrecision(5) }}</h1>
+    </div>
+    <div>
+        <form #form="ngForm" ngClass=".form-margin" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" name="fullName" [(ngModel)]="fullName" required minlength="3"
+                id="fullName" placeholder="(Minimum 3 characters)">
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" name="address" [(ngModel)]="address" id="address"  required minlength="6"
+                placeholder="(Minimum 6 characters)">
+            </div>
+            <div class="mb-3">
+                <label for="cardNumber" class="form-label">Credit Card Number</label>
+                <input type="number" name="cardNumber" class="form-control" [(ngModel)]="cardNumber"  required minlength="16"
+                    id="cardNumber" placeholder="(16-Digit Number)">
+                <div id="cardNumber" class="form-text">We'll never share your payment details with anyone else.</div>
+              </div>
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+          </form>
+    </div>
+</div>

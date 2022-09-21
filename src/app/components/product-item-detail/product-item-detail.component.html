@@ -5,7 +5,7 @@
     </div>
     <div>
         <h1 ngClass="detail-item">{{ item.name }}</h1>
-        <h5 ngClass="detail-item">{{ item.price }}</h5>
+        <h5 ngClass="detail-item">${{ item.price }}</h5>
         <h6 ngClass="detail-item">{{ item.description }}</h6>
         <div ngClass="detail-item">
             <select ngClass="select-input" [(ngModel)]="item.count">

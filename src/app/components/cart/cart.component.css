@@ -18,7 +18,7 @@ img {
     justify-content: center;
     flex-direction: column;
     align-items: left;
-    margin-left: 80px;
+    margin-left: 50px;
   }
   
   .number-input {
@@ -35,7 +35,10 @@ img {
   
   .cart-panel {
     margin-left: 50px;
-    margin-right: 50px;
+    margin-right: 150px;
+    height: 300px;
+    width: 500px;
+    overflow-y: scroll;
   }
   
   .empty-cart-message {
