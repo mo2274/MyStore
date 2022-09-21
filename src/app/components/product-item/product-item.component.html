@@ -1,0 +1,12 @@
+
+
+<div ngClass="product-container">
+    <img src="{{ item.url }}" alt="" ngClass="product-image">
+    <h5>{{ item.name }}</h5>
+    <h6> {{ item.price }}</h6>
+    <select>
+        <option *ngFor="let n in numbers">{{n}}</option>
+        <option>1</option>
+    </select>
+    <button ngClass="btn btn-primary">Add To Cart</button>
+</div>
