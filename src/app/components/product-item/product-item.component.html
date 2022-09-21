@@ -1,12 +1,13 @@
 
 
 <div ngClass="product-container">
-    <img src="{{ item.url }}" alt="" ngClass="product-image">
+    <a routerLink="/product/{{ item.id }}">
+        <img src="{{ item.url }}" alt="" ngClass="product-image">
+    </a>
     <h5>{{ item.name }}</h5>
-    <h6> {{ item.price }}</h6>
-    <select>
-        <option *ngFor="let n in numbers">{{n}}</option>
-        <option>1</option>
+    <h6> ${{ item.price }}</h6>
+    <select ngClass="select-input" [(ngModel)]="item.count">
+        <option *ngFor="let n of numbers">{{n}}</option>
     </select>
-    <button ngClass="btn btn-primary">Add To Cart</button>
+    <button ngClass="btn btn-primary" (click)="AddToCart()">Add To Cart</button>
 </div>

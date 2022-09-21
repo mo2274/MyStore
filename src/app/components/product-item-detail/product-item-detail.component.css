@@ -16,8 +16,9 @@ img {
   }
   
   .detail-item {
-    margin-left: 128px;
-    margin-right: 128px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
   }
   
   .back-link {

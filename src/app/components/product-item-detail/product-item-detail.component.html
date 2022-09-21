@@ -1,1 +1,20 @@
-<p>product-item-detail works!</p>
+
+<div ngClass="detail-container">
+    <div>
+        <img src="{{ item.url }}" alt="" ngClass="detail-item">
+    </div>
+    <div>
+        <h1 ngClass="detail-item">{{ item.name }}</h1>
+        <h5 ngClass="detail-item">{{ item.price }}</h5>
+        <h6 ngClass="detail-item">{{ item.description }}</h6>
+        <div ngClass="detail-item">
+            <select ngClass="select-input" [(ngModel)]="item.count">
+                <option *ngFor="let n of numbers">{{n}}</option>
+            </select>
+        </div>
+        <div ngClass="detail-item">
+            <button ngClass="btn btn-primary" (click)="AddToCart()">Add To Cart</button>
+        </div>
+        <a routerLink="/" ngClass="back-link detail-item">Back To Products List</a>
+    </div>    
+</div>

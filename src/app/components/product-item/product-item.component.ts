@@ -15,11 +15,15 @@ export class ProductItemComponent implements OnInit {
       name: "",
       price: 0,
       url: "",
-      description: ""
+      description: "",
+      count: 0
     };
   }
 
   ngOnInit(): void {
   }
 
+  AddToCart(): void {
+    console.log(this.item);
+  }
 }
