@@ -3,10 +3,10 @@
 
 <div ngClass="confirmation-container">
     <div ngClass="confirmation-items">
-        <h1 ngClass="confirmation-header confirmation-item">Success!</h1>
-        <p ngClass="confirmation-item">vvvvvvvvvvvv</p>
-        <p ngClass="confirmation-item">vvvvvvvvvvvvvvvvvvv</p>
-        <p ngClass="confirmation-item">vvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
-        <button class="btn btn-primary"> Back To Products List</button>
+        <h1 ngClass="confirmation-header confirmation-item">Success!.</h1>
+        <p ngClass="confirmation-item">Thank you, <span class="fw-bold">{{ name }}.</span> </p>
+        <p ngClass="confirmation-item">Your <span class="fw-bold">{{ total }}</span> order is confirmed.</p>
+        <p ngClass="confirmation-item">Please allow 1-3 business day(s) for shipping.</p>
+        <a class="btn btn-primary" routerLink="/"> Back To Products List</a>
     </div>
 </div>

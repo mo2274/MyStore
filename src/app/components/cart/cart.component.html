@@ -12,7 +12,8 @@
                     <h5>$ {{ item.price }}</h5>
                     <div style="display: flex;">
                         <label style="margin-right: 10px;">Amount: </label>
-                        <input type="number" ngClass="number-input" id="count" value="{{ item.count }}">
+                        <input type="number" (change)="CalcTotal()" ngClass="number-input" id="count" [(ngModel)]="item.count">
+                        <button class="btn btn-danger ms-4" (click)="DeleteItem(item)" >Delete Item</button>
                     </div>                  
                 </div>
             </div>
@@ -33,7 +34,7 @@
             </div>
             <div class="mb-3">
                 <label for="cardNumber" class="form-label">Credit Card Number</label>
-                <input type="number" name="cardNumber" class="form-control" [(ngModel)]="cardNumber"  required minlength="16"
+                <input type="text" name="cardNumber" class="form-control" [(ngModel)]="cardNumber"  required minlength="16"
                     id="cardNumber" placeholder="(16-Digit Number)">
                 <div id="cardNumber" class="form-text">We'll never share your payment details with anyone else.</div>
               </div>

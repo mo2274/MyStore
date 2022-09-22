@@ -1,9 +1,12 @@
 # MyStore
 
+MyStore is a simple online store to buy different products, you can see the list of products and details
+of a specific product and also you can add products to the cart and make a purchase.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
 
 ## Development server
-
+Run `npm install` to install pachages.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding

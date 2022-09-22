@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Item } from 'src/app/models/Item';
-import { ProductsService } from 'src/app/Services/products.service';
+import { CartService } from 'src/app/Services/cart-service.service';
+import { Router } from '@angular/router';
+import { ConfirmationDataService } from 'src/app/Services/confirmation-data.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,25 +15,38 @@ export class CartComponent implements OnInit {
   total: number = 0;
   fullName: string = "";
   address: string = "";
-  cardNumber: number = 0;
-  constructor(private productService : ProductsService) { }
+  cardNumber: string = "";
+  constructor(private cartService: CartService, private router: Router, private confirmationData :ConfirmationDataService) { }
 
   ngOnInit(): void {
     this.GetItems();
   }
 
   onSubmit() : void {
-    alert("sfgs");
+    this.confirmationData.changeMessage(this.fullName + "," +  this.total);
+    this.router.navigate(['/confirmation']);
   }
 
   private GetItems() {
-    this.productService.GetProducts().subscribe(res => {
-      for (let i = 0; i < res.length; i++) {
-        var item = res[i];
-        item['count'] = 1;
-        this.total += item.price * item.count;
-      }
-      this.items = res;
+    this.items = this.cartService.GetItems();
+    this.CalcTotal();
+  }
+
+  public CalcTotal() {
+    this.total = 0;
+    this.items.forEach(i => {
+      console.log(i.count);
+      this.total += i.count * i.price;
     });
+    console.log(this.total);
+  }
+
+  public DeleteItem(item: Item): void {
+    const index = this.items.indexOf(item, 0);
+    if (index > -1) {
+      this.items.splice(index, 1);
+    }
+
+    this.CalcTotal();
   }
 }
