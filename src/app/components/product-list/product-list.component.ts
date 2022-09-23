@@ -23,4 +23,8 @@ export class ProductListComponent implements OnInit {
     })
   }
 
+  ItemAddedToCart(item: Item) {
+    alert(item.count + " of item "+  item.name + " added to cart");
+  }
+
 }

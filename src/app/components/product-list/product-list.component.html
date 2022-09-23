@@ -2,6 +2,6 @@
 
 <div ngClass="product-container">
     <div ngClass="product-index">
-        <app-product-item *ngFor="let item of items" [item]="item" ></app-product-item>
+        <app-product-item *ngFor="let item of items" [item]="item" (added)="ItemAddedToCart($event)"></app-product-item>
     </div>
 </div>
