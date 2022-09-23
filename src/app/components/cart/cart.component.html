@@ -26,19 +26,43 @@
             <div class="mb-3">
               <label for="fullName" class="form-label">Full Name</label>
               <input type="text" class="form-control" name="fullName" [(ngModel)]="fullName" required minlength="3"
-                id="fullName" placeholder="(Minimum 3 characters)">
+                id="fullName" placeholder="(Minimum 3 characters)" #name="ngModel">
+            </div>
+            <div *ngIf="name.invalid && name.dirty">
+                <div *ngIf="name?.errors!['required']" class="invalid">
+                  Please provide a full name.
+                </div>
+                <div *ngIf="name.errors!['minlength']" class="invalid">
+                  The full name must contain at least 3 characters.
+                </div>
             </div>
             <div class="mb-3">
               <label for="address" class="form-label">Address</label>
               <input type="text" class="form-control" name="address" [(ngModel)]="address" id="address"  required minlength="6"
-                placeholder="(Minimum 6 characters)">
-            </div>                      
+                placeholder="(Minimum 6 characters)" #theAddress="ngModel"> 
+            </div>
+            <div *ngIf="theAddress.invalid && theAddress.dirty">
+                <div *ngIf="theAddress?.errors!['required']" class="invalid">
+                  Please provide an address.
+                </div>
+                <div *ngIf="theAddress.errors!['minlength']" class="invalid">
+                  The address must contain at least 6 characters.
+                </div>
+            </div>                   
             <div class="mb-3">
                 <label for="cardNumber" class="form-label">Credit Card Number</label>
                 <input type="text" pattern="[0-9]+"  name="cardNumber" class="form-control" [(ngModel)]="cardNumber"  required minlength="16"
-                    id="cardNumber" placeholder="(16-Digit Number)">
+                    id="cardNumber" placeholder="(16-Digit Number)" maxlength="16" #thecardNumber="ngModel">
                 <div id="cardNumber" class="form-text">We'll never share your payment details with anyone else.</div>
               </div>
+              <div *ngIf="thecardNumber.invalid && thecardNumber.dirty">
+                <div *ngIf="thecardNumber?.errors!['required']" class="invalid">
+                  Please provide an card Number.
+                </div>
+                <div *ngIf="thecardNumber.errors!['minlength'] || thecardNumber.errors!['pattern']" class="invalid">
+                  The card Number must contain 16-Digit Number.
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
           </form>
     </div>
