@@ -12,7 +12,8 @@
                     <h5>$ {{ item.price }}</h5>
                     <div style="display: flex;">
                         <label style="margin-right: 10px;">Amount: </label>
-                        <input type="number" (change)="CalcTotal()" ngClass="number-input" id="count" [(ngModel)]="item.count">
+                        <input type="number" (ngModelChange)="CoutChange(item, $event)" 
+                        ngClass="number-input" name="count" id="count" [ngModel]="item.count">
                         <button class="btn btn-danger ms-4" (click)="DeleteItem(item)" >Delete Item</button>
                     </div>                  
                 </div>

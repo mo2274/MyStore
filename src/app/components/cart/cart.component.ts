@@ -41,6 +41,11 @@ export class CartComponent implements OnInit {
     console.log(this.total);
   }
 
+  public CoutChange(item:Item, count: number) {
+     item.count = count;
+     this.CalcTotal();
+  }
+
   public DeleteItem(item: Item): void {
     const index = this.items.indexOf(item, 0);
     if (index > -1) {
